@@ -1,10 +1,29 @@
 import ApexChart from 'react-apexcharts';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 function Columnchart(){
+  const [post, setPost] = useState();
+
+
+  useEffect(()=> {
+    axios
+    .get('http://localhost:8800/regiao')
+    .then((resposta) => {
+      setPost(resposta.data)
+    })
+    .catch((erro) => console.log(erro));
+  })
+
+  console.log(post);
+
+  
 
   const series = [{
     name: 'Servings',
-    data: [44, 55, 41, 67, 22, 43, 21, 33, 45, 31, 87, 65, 35]
+    data: post?.map((e) => {
+      return e.Quantidade
+    })
   }]
 
   const options = {
@@ -12,14 +31,14 @@ function Columnchart(){
       labels: {
         rotate: -45
       },
-      categories: ['Apples', 'Oranges', 'Strawberries', 'Pineapples', 'Mangoes', 'Bananas',
-        'Blackberries', 'Pears', 'Watermelons', 'Cherries', 'Pomegranates', 'Tangerines', 'Papayas'
-      ],
+      categories: post?.map((e) => {
+        return e.Regiao
+      }),
       tickPlacement: 'on'
     },
     yaxis: {
       title: {
-        text: 'Servings',
+        text: 'Quantidade de casas',
       },
       tooltip: {
         enabled: true
