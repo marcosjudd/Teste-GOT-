@@ -1,9 +1,27 @@
 import ApexChart from 'react-apexcharts';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function Barchart(){
+  const [post, setPost] = useState();
+
+
+  useEffect(()=> {
+    axios
+    .get('http://localhost:8800/aparicoes')
+    .then((resposta) => {
+      setPost(resposta.data)
+    })
+    .catch((erro) => console.log(erro));
+  })
+
+  console.log(post)
+
 
   const series = [{
-    data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380]
+    data: post?.map((e)=>{
+      return e.media_aparicoes_por_ano
+    })
   }]
 
   const options = {
@@ -14,9 +32,9 @@ function Barchart(){
       }
     },
     xaxis: {
-      categories: ['South Korea', 'Canada', 'United Kingdom', 'Netherlands', 'Italy', 'France', 'Japan',
-        'United States', 'China', 'Germany'
-      ],
+      categories: post?.map((e) => {
+        return e.personagens
+      }),
     }
   }
 
