@@ -16,11 +16,11 @@ apresentação com a exploração dos dados.
 ### ⇨ Utilize consultas com diversidade de operações: filtragem múltipla, agregação, subconsultas, ordenação, joins, etc.
 
 ## Colaboradores 
-* Bruno Henrique da Silva Travessa
-* Brandon Jesus
-* Diego Fernando Reis
-* Marcos Antônio Vieira Clementino
-* Ronaldo Rodrigues de Figueiredo
+* Bruno Henrique da Silva Travessa 🎂
+* Brandon Jesus ✝️
+* Diego Fernando Reis 👑
+* Marcos Antônio Vieira Clementino 🤡
+* Ronaldo Rodrigues de Figueiredo 🍑
 
  
 ## teste
